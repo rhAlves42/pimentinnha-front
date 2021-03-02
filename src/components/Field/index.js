@@ -1,26 +1,44 @@
 import React from "react";
 import cx from "classnames";
-import _isEmpty from 'lodash/isEmpty';
+import _isEmpty from "lodash/isEmpty";
 import { Field as FmkField } from "formik";
+import Fade from "react-reveal/Fade";
 
 import styles from "./Field.module.css";
-const Field = ({ className, name, label, labelClassNames, onChange, values, ...props }) => {
+const Field = ({
+  className,
+  name,
+  label,
+  labelClassNames,
+  onChange,
+  values,
+  errors,
+  ...props
+}) => {
   const [onFocus, setOnFocus] = React.useState(false);
+  const isValid = !errors[name];
+  const errorMessage = errors[name];
   const handleFocus = () => setOnFocus(!onFocus);
+  const fieldClassNames = cx(className, styles.form__field, {
+    [styles.focus]: onFocus || !_isEmpty(values[name]),
+    [styles.error]: !isValid,
+  });
   return (
     <div className={cx(styles.form__group, styles.field)}>
       <FmkField
         name={name}
         onFocus={handleFocus}
         onBlur={handleFocus}
-        className={cx(className, styles.form__field, {
-          [styles.focus]: onFocus || !_isEmpty(values[name]),
-        })}
-        {...props}
+        className={fieldClassNames}
       />
       <label for={name} className={cx(labelClassNames, styles.form__label)}>
         {label}
       </label>
+      <Fade bottom when={!isValid}>
+        <p className={styles.error_text}>
+          {errorMessage}
+        </p>
+      </Fade>
     </div>
   );
 };

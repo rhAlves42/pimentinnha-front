@@ -4,14 +4,21 @@
   margin-top: 10px;
 }
 
+p.error_text {
+  color: #D93D4A;
+  margin-top: -.5rem;
+  margin-bottom: 1rem;
+  font-size: 14px;
+}
+
 .form__field {
   font-family: inherit;
   width: 100%;
   border: 0;
-  border-bottom: 2px solid #401515;
+  border-bottom: 2px solid #FFFFFF;
   outline: 0;
   font-size: 1rem;
-  color: #401515;
+  color: #FFFFFF;
   padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;
@@ -31,23 +38,29 @@
   display: block;
   transition: 0.5s;
   font-size: 1rem;
-  color: #401515;
+  color: #FFFFFF;
 }
 
 .form__field.focus {
   padding-bottom: 6px;
   font-weight: 200;
   border-width: 2px;
-  border-image: linear-gradient(to right, #BF0F30, #D9A036);
   border-image-slice: 1;
 }
+
+.form__field.error {
+  border-bottom: 2px solid #D93D4A;
+}
+
+
+
 .form__field.focus ~ .form__label {
   position: absolute;
   top: 0;
   display: block;
   transition: 0.5s;
   font-size: 1rem;
-  color: #401515;
+  color: #FFFFFF;
   font-weight: 300;
 }
 
