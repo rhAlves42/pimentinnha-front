@@ -1,0 +1,7 @@
+@import "./tachyons/css/tachyons.css";
+@import "./react-image-zoom.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&display=swap');
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: linear-gradient(0deg, #e6e9f0 0, #eef1f5);
+}

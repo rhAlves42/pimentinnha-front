@@ -1,0 +1,22 @@
+/*!!!
+
+  # Gradients
+
+  ### Docs
+
+  http://tachyons.io/docs/themes/gradients/
+
+  ### Base
+
+  `gradient` = background-color
+
+  ### Modifiers
+
+  - `-gradient-name` = dark-blue, lily, aqua, etc
+*/
+.gradient-torch-red {
+  background-image: linear-gradient(to left, #ff0000, var(--torch-red));
+}
+.gradient-green-grass {
+  background-image: linear-gradient(to left, #3e9814, #1bdb10);
+}
