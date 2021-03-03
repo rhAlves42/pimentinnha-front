@@ -1,0 +1,20 @@
+/* Color Theme Swatches in Hex */
+.Romantic-surprise-concept---a-man-holding-a-bouquet-of-roses-and-wants-to-give-it-to-a-woman-during-dinner-at-a-restaurant.-1-hex { color: #D93D4A; }
+.Romantic-surprise-concept---a-man-holding-a-bouquet-of-roses-and-wants-to-give-it-to-a-woman-during-dinner-at-a-restaurant.-2-hex { color: #8163BF; }
+.Romantic-surprise-concept---a-man-holding-a-bouquet-of-roses-and-wants-to-give-it-to-a-woman-during-dinner-at-a-restaurant.-3-hex { color: #1F1D26; }
+.Romantic-surprise-concept---a-man-holding-a-bouquet-of-roses-and-wants-to-give-it-to-a-woman-during-dinner-at-a-restaurant.-4-hex { color: #D9886A; }
+.Romantic-surprise-concept---a-man-holding-a-bouquet-of-roses-and-wants-to-give-it-to-a-woman-during-dinner-at-a-restaurant.-5-hex { color: #8C5042; }
+
+/* Color Theme Swatches in RGBA */
+.Romantic-surprise-concept---a-man-holding-a-bouquet-of-roses-and-wants-to-give-it-to-a-woman-during-dinner-at-a-restaurant.-1-rgba { color: rgba(216, 60, 73, 1); }
+.Romantic-surprise-concept---a-man-holding-a-bouquet-of-roses-and-wants-to-give-it-to-a-woman-during-dinner-at-a-restaurant.-2-rgba { color: rgba(128, 99, 191, 1); }
+.Romantic-surprise-concept---a-man-holding-a-bouquet-of-roses-and-wants-to-give-it-to-a-woman-during-dinner-at-a-restaurant.-3-rgba { color: rgba(30, 29, 38, 1); }
+.Romantic-surprise-concept---a-man-holding-a-bouquet-of-roses-and-wants-to-give-it-to-a-woman-during-dinner-at-a-restaurant.-4-rgba { color: rgba(216, 135, 106, 1); }
+.Romantic-surprise-concept---a-man-holding-a-bouquet-of-roses-and-wants-to-give-it-to-a-woman-during-dinner-at-a-restaurant.-5-rgba { color: rgba(140, 79, 65, 1); }
+
+/* Color Theme Swatches in HSLA */
+.Romantic-surprise-concept---a-man-holding-a-bouquet-of-roses-and-wants-to-give-it-to-a-woman-during-dinner-at-a-restaurant.-1-hsla { color: hsla(354, 67, 54, 1); }
+.Romantic-surprise-concept---a-man-holding-a-bouquet-of-roses-and-wants-to-give-it-to-a-woman-during-dinner-at-a-restaurant.-2-hsla { color: hsla(258, 41, 57, 1); }
+.Romantic-surprise-concept---a-man-holding-a-bouquet-of-roses-and-wants-to-give-it-to-a-woman-during-dinner-at-a-restaurant.-3-hsla { color: hsla(247, 12, 13, 1); }
+.Romantic-surprise-concept---a-man-holding-a-bouquet-of-roses-and-wants-to-give-it-to-a-woman-during-dinner-at-a-restaurant.-4-hsla { color: hsla(16, 59, 63, 1); }
+.Romantic-surprise-concept---a-man-holding-a-bouquet-of-roses-and-wants-to-give-it-to-a-woman-during-dinner-at-a-restaurant.-5-hsla { color: hsla(11, 36, 40, 1); }

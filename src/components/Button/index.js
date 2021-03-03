@@ -1,6 +1,7 @@
 import React from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
+import { LoadingOutlined } from "@ant-design/icons";
 
 import styles from "./Button.module.css";
 
@@ -26,7 +27,10 @@ const Button = ({
         <p>
           <span className={cx(styles.bg)}></span>
           <span className={cx(styles.base)}></span>
-          <span className={cx(styles.text)}>{children}</span>
+          <span className={cx(styles.text)}>
+            {disabled && <LoadingOutlined className={styles.loadingIcon} />}
+            {!disabled && children}
+          </span>
         </p>
       </button>
     </>

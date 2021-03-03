@@ -1,10 +1,11 @@
 import React from "react";
-import AuthContext from "../context/auth.context";
-import Login from "../components/Login";
-const Home = () => {
-  const authContext = React.useContext(AuthContext);
+import Home from "../components/Home";
+import Layout from "../components/Layout";
 
-  return <Login />;
-};
+const HomePage = () => (
+  <Layout pageTitle="Home">
+    <Home />
+  </Layout>
+);
 
-export default Home;
+export default HomePage;

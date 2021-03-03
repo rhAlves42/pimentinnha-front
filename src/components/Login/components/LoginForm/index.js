@@ -1,26 +1,44 @@
 import React from "react";
 import { Formik } from "formik";
-import AuthContext from "../../../../context/auth.context";
-import FormikLogin from "./form";
+import { navigate } from "gatsby";
+import Fade from "react-reveal/Fade";
 
-import LoginSchema from '../../../../validations/logingValidations';
+import FormikLogin from "./form";
+import AuthService from "../../../../services/auth.services";
+import LoginSchema from "../../../../validations/logingValidations";
 
 const LoginForm = () => {
-  const authContext = React.useContext(AuthContext);
+  const [errorMessage, setErrorMessage] = React.useState("");
   const initalValues = {
     username: "",
     pass: "",
   };
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const { email, password } = data;
+
+    const onError = (error) => setErrorMessage(error);
+    const onSuccess = (user) => {
+      navigate('/');
+    };
+
+    await AuthService.login({ email, password, onError, onSuccess });
+  };
+
   return (
-    <Formik
-      onSubmit={onSubmit}
-      initialValues={initalValues}
-      validationSchema={LoginSchema}
-    >
-      {(props) => <FormikLogin {...props} />}
-    </Formik>
+    <>
+      <Fade bottom when={!!errorMessage}>
+        <p className="primary-color">{errorMessage}</p>
+      </Fade>
+
+      <Formik
+        onSubmit={onSubmit}
+        initialValues={initalValues}
+        validationSchema={LoginSchema}
+      >
+        {(props) => <FormikLogin {...props} />}
+      </Formik>
+    </>
   );
 };
 

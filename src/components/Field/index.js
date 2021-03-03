@@ -13,6 +13,8 @@ const Field = ({
   onChange,
   values,
   errors,
+  type,
+  touched,
   ...props
 }) => {
   const [onFocus, setOnFocus] = React.useState(false);
@@ -23,15 +25,18 @@ const Field = ({
     [styles.focus]: onFocus || !_isEmpty(values[name]),
     [styles.error]: !isValid,
   });
+
   return (
     <div className={cx(styles.form__group, styles.field)}>
       <FmkField
+        type={type}
+        touched={touched}
         name={name}
         onFocus={handleFocus}
         onBlur={handleFocus}
         className={fieldClassNames}
       />
-      <label for={name} className={cx(labelClassNames, styles.form__label)}>
+      <label htmlFor={name} className={cx(labelClassNames, styles.form__label)}>
         {label}
       </label>
       <Fade bottom when={!isValid}>
