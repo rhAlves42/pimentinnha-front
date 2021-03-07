@@ -1,0 +1,118 @@
+.navWrapper {
+  transition: all 0.7s;
+  box-shadow: 10px 10px 10px rgba(31, 29, 38, 0.05);
+  -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(40px);
+  background-color: rgba(129, 99, 191, 0.1);
+  background-clip: padding-box;
+}
+
+.navLogoButton {
+  background: none;
+  border: none;
+  height: 83px;
+  display: inline-block;
+  border: none;
+  padding: 1rem 1rem !important;
+  margin: 0;
+  text-decoration: none;
+  background: none;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.navWrapper img {
+  object-fit: contain;
+  width: 273px;
+  display: flex;
+}
+
+
+@media (max-width: 767px) {
+  .navWrapper {
+    border-bottom: solid 1px rgba(223, 211, 211, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 768px) {
+  .navWrapper img {
+    width: 75%;
+  }
+  .navWrapper {
+    height: 100vh;
+    border-right: solid 1px rgba(223, 211, 211, 0.2);
+  }
+}
+
+
+.navLogoButton {
+  background: none;
+  border: none;
+  height: 83px;
+  display: inline-block;
+  border: none;
+  padding: 1rem 1rem !important;
+  margin: 0;
+  text-decoration: none;
+  background: none;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.navLogoButton:hover,
+.navLogoButton:focus {
+  background: none;
+}
+
+.navLogoButton:focus {
+  outline: none;
+  outline-offset: -4px;
+}
+
+.navLogoButton:active {
+  transform: scale(0.99);
+}
+.menuWrapper {
+  border-top: solid 1px rgba(223, 211, 211, 0.2) !important;
+}
+
+.menuWrapper:last-of-type {
+  border-bottom: solid 1px rgba(223, 211, 211, 0.2);
+}
+.menuWrapper > * {
+  transition: all 0.7s;
+  color: rgb(217, 136, 106);
+}
+.menuWrapper > p {
+  padding-left: 0.5rem;
+}
+
+.closedNav {
+  justify-content: center;
+  align-items: center;
+}
+
+.closedNav > .menuIcon {
+  transition: all 0.7s;
+  font-size: 24px;
+}
+
+.menuWrapper:hover > *,
+.closedNav > .menuIcon:hover {
+  color: rgba(217, 136, 106, 0.5);
+}

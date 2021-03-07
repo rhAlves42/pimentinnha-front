@@ -1,11 +1,11 @@
 import React from "react";
 import Home from "../components/Home";
-import Layout from "../components/Layout";
+import AdminLayout from "../components/Layout/AdminLayout";
 
 const HomePage = () => (
-  <Layout pageTitle="Home">
+  <AdminLayout pageTitle="Home">
     <Home />
-  </Layout>
+  </AdminLayout>
 );
 
 export default HomePage;

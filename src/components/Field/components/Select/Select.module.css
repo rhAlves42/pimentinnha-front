@@ -1,0 +1,95 @@
+/****  floating-Lable style start ****/
+.floatingLabel {
+  position: relative;
+  margin-bottom: 20px;
+}
+.floating-input,
+.floatingSelect {
+  font-size: 14px;
+  padding: 4px 4px;
+  display: block;
+  width: 100%;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #757575;
+}
+
+.floating-input:focus,
+.floatingSelect:focus {
+  outline: none;
+  border-bottom: 2px solid #5264ae;
+}
+
+.floatingLabel > label {
+  color: #999;
+  font-size: 14px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 5px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.floatingSelect:focus ~ label,
+.floatingSelect:not([value=""]):valid ~ label {
+  top: -18px;
+  font-size: 14px;
+  color: #5264ae;
+}
+
+/* active state */
+.floatingSelect:focus ~ .bar:before,
+.floatingSelect:focus ~ .bar:after {
+  width: 50%;
+}
+
+/* highlighter */
+.highlight {
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  top: 15%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* active state */
+.floatingSelect:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+
+/* animation */
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@-moz-keyframes inputHighlighter {
+  from {
+    background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@keyframes inputHighlighter {
+  from {
+    background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}

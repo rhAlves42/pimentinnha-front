@@ -1,6 +1,7 @@
 import React from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
+import { Button as GhostButton } from "theme-ui";
 import { LoadingOutlined } from "@ant-design/icons";
 
 import styles from "./Button.module.css";
@@ -13,6 +14,19 @@ const Button = ({
   children,
   buttonType = "white",
 }) => {
+  if (type === "ghost") {
+    return (
+      <GhostButton
+        onClick={onSubmit}
+        type={type}
+        disabled={disabled}
+        className={cx('pa16 flex flex-row items-center justify-start', styles.ghost, className)}
+      >
+        {disabled && <LoadingOutlined className={styles.loadingIcon} />}
+        {!disabled && children}
+      </GhostButton>
+    );
+  }
   return (
     <>
       <button

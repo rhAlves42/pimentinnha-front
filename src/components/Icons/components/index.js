@@ -1,3 +1,5 @@
+export { default as Layer } from './Layer'
 export { default as Icon } from './Icon'
 export { default as PimentinhaHorizontal } from './PimentinhaHorizontal'
 export { default as PimentinhaVertical } from './PimentinhaVertical'
+export { default as Pimentinha } from './Pimentinha'

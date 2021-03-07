@@ -11,7 +11,6 @@ export const AuthProvider = ({ children }) => {
 
   React.useEffect(() => {
     if (!isLoggedIn()) navigate("/login");
-    if (isLoggedIn()) navigate("/");
   }, []);
   return (
     <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>

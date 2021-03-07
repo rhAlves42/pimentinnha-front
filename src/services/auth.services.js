@@ -6,7 +6,7 @@ class AuthService {
   user = getDataFromStorage({ dataName: "user" });
 
   auth() {
-    return firebaseInstance.auth();
+    return firebaseInstance().auth();
   }
 
   login = async ({ email, password, onError, onSuccess }) => {

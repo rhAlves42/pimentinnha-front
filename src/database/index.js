@@ -1,4 +1,5 @@
-import firebase from 'firebase';
+// import firebase from 'firebase';
+const firebase = typeof window !== `undefined` ? require("firebase") : null
 const options = {
   apiKey: process.env.API_KEY,
   authDomain: process.env.AUTH_DOMAIN,
@@ -8,4 +9,15 @@ const options = {
   messagingSenderId: process.env.MESSAGE_SENDER_ID,
   appId: process.env.APP_ID,
 };
-export default firebase.initializeApp({ ...options });
+
+let instance;
+
+export default function getFirebase() {
+  if (typeof window !== 'undefined') {
+    if (instance) return instance;
+    instance = firebase.initializeApp(options);
+    return instance;
+  }
+
+  return null;
+}
