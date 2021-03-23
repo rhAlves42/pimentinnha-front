@@ -1,4 +1,4 @@
-import firebaseInstance from "../database";
+import { auth }  from "../database";
 import { getDataFromStorage, setDataToStorage } from "../utils/localStorage";
 import { ERRORS_FIREBASE } from "../utils/errorsFirebase";
 
@@ -6,7 +6,8 @@ class AuthService {
   user = getDataFromStorage({ dataName: "user" });
 
   auth() {
-    return firebaseInstance().auth();
+    console.log('auth', auth)
+    return auth();
   }
 
   login = async ({ email, password, onError, onSuccess }) => {
@@ -15,7 +16,7 @@ class AuthService {
       .then(() =>
         this.auth().onAuthStateChanged((userAuth) => {
           setDataToStorage({ dataName: "user", dataValue: userAuth });
-          onSuccess(userAuth)
+          onSuccess(userAuth);
         })
       )
       .catch((error) => {
