@@ -1,28 +1,127 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Form } from "formik";
+import _get from "lodash/get";
+import productService from "../../../../services/product.service";
 import Button from "../../../Button";
-import Field from '../../../Field';
+import Field from "../../../Field";
 
 const FormikProduct = ({ isSubmitting, values, ...props }) => {
-  const brandOptions = [
-    {id: 'teste', value: 'lorem ipsum'},
-    {id: 'teste1', value: 'lorem ipsum2'},
-    {id: 'teste2', value: 'lorem ipsum3'},
-  ]
+  const [brandOptions, setBrandOptions] = React.useState([]);
+  const [categoryOptions, setCategoryOptions] = React.useState([]);
+  const sizeOptions = [
+    {
+      id: "P",
+      value: "P",
+    },
+    {
+      id: "M",
+      value: "M",
+    },
+    {
+      id: "G",
+      value: "G",
+    },
+    {
+      id: "GG",
+      value: "GG",
+    },
+  ];
+
+  const fetchOptions = async () => {
+    const data = await productService.getOptions();
+    const newBrands = _get(data, "brands", []);
+    const newCategory = _get(data, "category", []);
+    setCategoryOptions(newCategory);
+    setBrandOptions(newBrands);
+  };
+
+  React.useEffect(() => {
+    fetchOptions();
+  }, []);
+  const fieldClassNames = {
+    fieldWrapperClassName:
+      "u-size12of12 u-sm-size6of12 u-md-size4of12 u-lg-size4of12",
+    className: "mb16",
+  };
   return (
-    <Form noValidate className="flex flex-column justify-center w-80 w-40-ns w-20-m w-30-l ">
-      <Field values={values} label="Nome do produto" type="text" name="name" className="mb16" {...props} />
-      <Field values={values} label="Marca" type="select" name="brand" options={brandOptions} className="mb16" {...props} />
-      <Field values={values} label="Categoria" type="select" name="category" className="mb16" {...props} />
-      <Field values={values} label="Tamanho" type="select" name="size" className="mb16" {...props} />
-      <Field values={values} label="Caracteristica" type="text" name="feature" className="mb16" {...props} />
-      <Field values={values} label="Valor pago unidade" type="text" name="unityPrice" className="mb16" {...props} />
-      <Field values={values} label="Quantidade adquirida" type="text" name="qtdBuyed" className="mb16" {...props} />
-      <Field values={values} label="Valor do produto" type="text" name="productPrice" className="mb16" {...props} />
-      <Button disabled={isSubmitting} type="submit" className="w-80 w-60-ns ma-ns">
-        Entrar
-      </Button>
+    <Form noValidate className="Grid">
+      <Field
+        values={values}
+        label="Nome do produto"
+        type="text"
+        name="nome"
+        {...fieldClassNames}
+        {...props}
+      />
+      <Field
+        values={values}
+        label="Marca"
+        type="select"
+        name="marca"
+        options={brandOptions}
+        {...fieldClassNames}
+        {...props}
+      />
+      <Field
+        values={values}
+        label="Categoria"
+        type="select"
+        name="categoria"
+        options={categoryOptions}
+        {...fieldClassNames}
+        {...props}
+      />
+      <Field
+        values={values}
+        label="Tamanho"
+        type="select"
+        name="tamanho"
+        options={sizeOptions}
+        {...fieldClassNames}
+        {...props}
+      />
+      <Field
+        values={values}
+        label="Caracteristica"
+        type="text"
+        name="caracteristica"
+        {...fieldClassNames}
+        {...props}
+      />
+      <Field
+        values={values}
+        label="Valor pago unidade"
+        type="text"
+        name="valorUnitario"
+        moneyMask
+        {...fieldClassNames}
+        {...props}
+      />
+      <Field
+        values={values}
+        label="Quantidade adquirida"
+        type="number"
+        name="qtdAdquirida"
+        {...fieldClassNames}
+        {...props}
+      />
+      <Field
+        values={values}
+        label="Valor do produto"
+        type="text"
+        name="valorProdudo"
+        moneyMask
+        {...fieldClassNames}
+        {...props}
+      />
+      <div className="u-size12of12 u-sm-size5of12 u-md-size6of12 u-lg-size6of12">
+        <div className="w-50 mt32-ns" >
+          <Button disabled={isSubmitting} type="submit">
+            Salvar
+          </Button>
+        </div>
+      </div>
     </Form>
   );
 };

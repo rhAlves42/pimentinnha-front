@@ -70,7 +70,7 @@ const AdminLayout = ({ pageTitle, description, children }) => {
 };
 
 AdminLayout.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.node,
   pageTitle: PropTypes.node,
   description: PropTypes.string,
 };

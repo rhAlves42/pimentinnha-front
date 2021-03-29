@@ -13,6 +13,7 @@ const Button = ({
   disabled,
   children,
   buttonType = "white",
+  ...props
 }) => {
   if (type === "ghost") {
     return (
@@ -20,7 +21,12 @@ const Button = ({
         onClick={onSubmit}
         type={type}
         disabled={disabled}
-        className={cx('pa16 flex flex-row items-center justify-start', styles.ghost, className)}
+        className={cx(
+          "pa16 flex flex-row items-center justify-start",
+          styles.ghost,
+          className
+        )}
+        {...props}
       >
         {disabled && <LoadingOutlined className={styles.loadingIcon} />}
         {!disabled && children}
@@ -37,6 +43,7 @@ const Button = ({
           [styles.white]: buttonType === "white",
           [styles.transparent]: buttonType === "transparent",
         })}
+        {...props}
       >
         <p>
           <span className={cx(styles.bg)}></span>

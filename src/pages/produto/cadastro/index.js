@@ -5,6 +5,7 @@ const CreateProductPage = () => {
   return (
     <AdminLayout pageTitle="Cadastro - Produtos">
       <main className="mc center">
+        <h2 className="white-90">Cadastro de produtos</h2>
         <ProductForm />
       </main>
     </AdminLayout>

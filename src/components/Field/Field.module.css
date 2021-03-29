@@ -4,21 +4,22 @@
   margin-top: 10px;
 }
 
-p.error_text {
-  color: #D93D4A;
-  margin-top: -.5rem;
+p.error_text,
+p.error_textSelect {
   margin-bottom: 1rem;
   font-size: 14px;
+  color: #d93d4a;
+  margin-top: -0.5rem;
 }
 
 .form__field {
   font-family: inherit;
-  width: 100%;
+  width: 95%;
   border: 0;
-  border-bottom: 2px solid #FFFFFF;
+  border-bottom: 2px solid #ffffff;
   outline: 0;
   font-size: 1rem;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;
@@ -38,7 +39,7 @@ p.error_text {
   display: block;
   transition: 0.5s;
   font-size: 1rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .form__field.focus {
@@ -49,10 +50,8 @@ p.error_text {
 }
 
 .form__field.error {
-  border-bottom: 2px solid #D93D4A;
+  border-bottom: 2px solid #d93d4a;
 }
-
-
 
 .form__field.focus ~ .form__label {
   position: absolute;
@@ -60,11 +59,22 @@ p.error_text {
   display: block;
   transition: 0.5s;
   font-size: 1rem;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 300;
 }
 
 /* reset input */
-.form__field:required, .form__field:invalid {
+.form__field:required,
+.form__field:invalid {
   box-shadow: none;
+}
+
+.showPassIconWrapper {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  z-index: 2;
+}
+.showPassIcon {
+  color: #fff;
 }

@@ -8,13 +8,13 @@ export const CreateProductSchema = Yup.object().shape({
   nome: Yup.string().required('Campo obrigatório!'),
   tamanho: Yup.string().required('Campo obrigatório!'),
   valorUnitario: Yup.string().required('Campo obrigatório!'),
-  qtdAdquirida: Yup.number().required('Campo obrigatório!'),
+  qtdAdquirida: Yup.string().required('Campo obrigatório!'),
   valorProdudo: Yup.string().required('Campo obrigatório!'),
 });
 
 
 export const UpdateProductSchema = Yup.object().shape({
   valorUnitario: Yup.string().required('Campo obrigatório!'),
-  qtdAdquirida: Yup.number().required('Campo obrigatório!'),
+  qtdAdquirida: Yup.string().required('Campo obrigatório!'),
   valorProdudo: Yup.string().required('Campo obrigatório!'),
 });

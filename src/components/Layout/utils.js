@@ -20,18 +20,7 @@ export const menuData = [
   {
     name: 'Estoque',
     icon: "AppstoreOutlined",
-    children: [
-      {
-        name: 'Cadastro de produtos',
-        path: '/produto/cadastro',
-        exact: true,
-      },
-      {
-        name: 'Listagem de produto',
-        path: '/produto/',
-        exact: true,
-      },
-    ],
+    path: '/produto',
   },
   {
     name: 'Clientes',

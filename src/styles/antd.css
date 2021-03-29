@@ -1,0 +1,74 @@
+@import "~antd/dist/antd.css";
+
+:root {
+  --red-border: 1px solid #d93d4a;
+  --default-bg: #1f1d26 !important;
+}
+
+.ant-table {
+  background: var(--default-bg);
+  color: #fff;
+}
+.ant-table-thead > tr > th {
+  background: var(--default-bg);
+  border-top: var(--red-border);
+  border-right: var(--red-border);
+  border-bottom: var(--red-border);
+  color: #fff;
+}
+
+.ant-table-thead > tr > th:first-child {
+  border-right: var(--red-border);
+  border-left: var(--red-border);
+}
+.ant-table-thead > tr > th:last-child {
+  border-left: none;
+}
+
+.ant-table-tbody > tr.ant-table-row > td {
+  transition: all 0.7s;
+}
+.ant-table-tbody > tr.ant-table-row:hover > td {
+  background: #d93d4a;
+}
+
+.ant-pagination-jump-prev
+  .ant-pagination-item-container
+  .ant-pagination-item-ellipsis,
+.ant-pagination-jump-next
+  .ant-pagination-item-container
+  .ant-pagination-item-ellipsis {
+  color: #fff;
+}
+
+.ant-pagination-item {
+  background: var(--default-bg);
+  border: var(--red-border) !important;
+}
+
+.ant-pagination-item > a {
+  transition: all 0.7s;
+  color: #fff !important;
+}
+
+.ant-pagination-item > a:hover {
+  color: #d9886a !important;
+}
+
+.ant-pagination-item-active {
+  background: #d93d4a !important;
+}
+
+.ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination-next .ant-pagination-item-link {
+  color: #fff !important;
+  background: #d9886a !important;
+  border: 1px solid #d9886a !important;
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector,
+.ant-select-selector > .ant-select-arrow > span > svg {
+  color: #fff !important;
+  fill: #fff !important;
+  background: var(--default-bg) !important;
+}
