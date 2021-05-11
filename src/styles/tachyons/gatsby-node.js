@@ -46,22 +46,3 @@ exports.onCreateWebpackConfig = ({
 };
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {};
-
-exports.createPages = async ({ actions }) => {
-  const { createPage } = actions;
-  createPage({
-    path: "/vendas/editar",
-    matchPath: "/vendas/editar/*",
-    component: path.resolve("./src/components/Home/Placeholder.js"),
-  });
-  createPage({
-    path: "/produto/editar",
-    matchPath: "/produto/editar/*",
-    component: path.resolve("./src/components/Home/Placeholder.js"),
-  });
-  createPage({
-    path: "/cliente/editar",
-    matchPath: "/cliente/editar/*",
-    component: path.resolve("./src/components/Home/Placeholder.js"),
-  });
-};

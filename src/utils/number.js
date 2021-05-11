@@ -20,7 +20,7 @@ export const removeMaskMoney = (value) => {
   value = value.replace(',', '.');
   value = value.replace('R$ ', '');
 
-  console.log(value)
-
   return parseFloat(value);
 };
+
+export const normalizeMoney = (value) => `R$ ${money(String(value))}`;

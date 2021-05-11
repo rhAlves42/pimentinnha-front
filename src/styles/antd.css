@@ -5,6 +5,11 @@
   --default-bg: #1f1d26 !important;
 }
 
+.ant-btn-primary {
+  background-color: #1f1d26 !important;
+  border-color: #1f1d26 !important;
+  color: #fff !important;
+}
 .ant-table {
   background: var(--default-bg);
   color: #fff;
@@ -23,6 +28,9 @@
 }
 .ant-table-thead > tr > th:last-child {
   border-left: none;
+}
+.ant-table-tbody > tr.ant-table-row {
+  cursor: pointer;
 }
 
 .ant-table-tbody > tr.ant-table-row > td {
@@ -71,4 +79,50 @@
   color: #fff !important;
   fill: #fff !important;
   background: var(--default-bg) !important;
+}
+.ant-modal {
+  top: 20% !important;
+}
+
+.ant-modal-close-icon > svg {
+  fill: #fff !important;
+}
+.ant-modal-header {
+  border-bottom: 1px solid #d9886a !important;
+}
+.ant-modal-footer {
+  border-top: 1px solid #d9886a !important;
+}
+.ant-modal-header {
+  background: rgba(31, 29, 38, 0.2);
+  box-shadow: 0 8px 6px 0 rgb(31 38 135 / 37%);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
+  border-radius: 5px;
+}
+
+.ant-modal-header > .ant-modal-title {
+  color: #fff;
+}
+.ant-modal-content {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+
+.ant-empty-description {
+  color: #fff;
+}
+.ant-table-tbody > tr.ant-table-placeholder:hover > td {
+  background: #d93d4a !important;
+}
+
+
+.ant-table-placeholder:hover ~ .ant-empty-description {
+  color: #1f1d26;
 }

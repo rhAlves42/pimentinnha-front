@@ -25,18 +25,7 @@ export const menuData = [
   {
     name: 'Clientes',
     icon: "TeamOutlined",
-    children: [
-      {
-        name: 'Cadastro de clientes',
-        path: '/cliente/cadastro',
-        exact: true,
-      },
-      {
-        name: 'Listagem de clientes',
-        path: '/cliente/',
-        exact: true,
-      },
-    ],
+    path: '/cliente',
   },
   {
     name: 'Relatórios',

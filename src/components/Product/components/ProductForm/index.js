@@ -52,7 +52,7 @@ const ProductForm = ({ edit }) => {
     };
 
     const formatedPayload = formatPayload(data);
-    ProductService.createProduct(formatedPayload, onSuccess, onError)
+    ProductService.createProduct(formatedPayload, onSuccess, onError);
   };
 
   return (
@@ -66,7 +66,7 @@ const ProductForm = ({ edit }) => {
         initialValues={initalValues}
         validationSchema={currentSchema}
       >
-        {(props) => <FormikProduct {...props} />}
+        {(props) => <FormikProduct {...props} edit={edit} />}
       </Formik>
     </>
   );

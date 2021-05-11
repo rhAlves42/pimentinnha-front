@@ -1,14 +1,11 @@
-import { auth }  from "../database";
+import { auth } from "../database";
 import { getDataFromStorage, setDataToStorage } from "../utils/localStorage";
 import { ERRORS_FIREBASE } from "../utils/errorsFirebase";
 
 class AuthService {
   user = getDataFromStorage({ dataName: "user" });
 
-  auth() {
-    console.log('auth', auth)
-    return auth();
-  }
+  auth = () => auth();
 
   login = async ({ email, password, onError, onSuccess }) => {
     await this.auth()

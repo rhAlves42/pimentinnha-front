@@ -6,6 +6,7 @@ import { Button } from "theme-ui";
 import Layout from "../";
 import LogoAdmin from "./components/LogoAdmin";
 import Menu from "./components/Menu";
+import Loader from '../../Loader';
 import MenuMobile from "./components/MenuMobile";
 import DestktopAndTablet from "../../MediaQuery/DestktopAndTablet";
 import Mobile from "../../MediaQuery/Mobile";
@@ -17,7 +18,7 @@ import {
 
 import styles from "./Admin.module.css";
 
-const AdminLayout = ({ pageTitle, description, children }) => {
+const AdminLayout = ({ pageTitle, description, children, isLoading }) => {
   const openState = getDataFromStorage({ dataName: "navState" });
   const [isOpen, setIsOpen] = React.useState(openState);
 
@@ -41,8 +42,8 @@ const AdminLayout = ({ pageTitle, description, children }) => {
     }
   );
 
-  const contentClassName = cx('pa16', {
-    "u-sm-size9of12 u-md-size9of12 u-lg-size9of12": isOpen,
+  const contentClassName = cx("pa16", {
+    "u-sm-size9of12 u-md-size9of12 u-lg-size10of12": isOpen,
     "u-sm-size11of12 u-md-size11of12 u-lg-size11of12": !isOpen,
   });
   return (
@@ -62,7 +63,9 @@ const AdminLayout = ({ pageTitle, description, children }) => {
             </Button>
             <Menu isNavOpen={isOpen} />
           </section>
-          <div className={contentClassName}>{children}</div>
+          <div className={contentClassName}>
+            {isLoading ? <Loader /> : children}
+          </div>
         </main>
       </DestktopAndTablet>
     </Layout>
@@ -72,6 +75,7 @@ const AdminLayout = ({ pageTitle, description, children }) => {
 AdminLayout.propTypes = {
   children: PropTypes.node,
   pageTitle: PropTypes.node,
+  isLoading: PropTypes.bool,
   description: PropTypes.string,
 };
 

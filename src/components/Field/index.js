@@ -9,7 +9,7 @@ import Fade from "react-reveal/Fade";
 
 import styles from "./Field.module.css";
 import Select from "./components/Select";
-import { money } from "../../utils/number";
+
 const Field = ({
   className,
   name,
@@ -22,7 +22,7 @@ const Field = ({
   touched,
   options,
   setFieldValue,
-  moneyMask,
+  mask,
   validateForm,
   fieldWrapperClassName,
   ...props
@@ -32,23 +32,25 @@ const Field = ({
   const fieldValue = _get(values, name, "");
   const isValid = _get(touched, name, "") && errorMessage;
   const isSelectField = type === "select";
-  const handleFocus = () => setOnFocus(true);
+  const handleFocus = (e) => {
+    e.target.value = fieldValue;
+    setOnFocus(true);
+  };
   const handleBlur = () => setOnFocus(false);
 
-
-
   const fieldClassNames = cx(className, styles.form__field, {
-    [styles.focus]: onFocus || !_isEmpty(fieldValue),
+    [styles.focus]: onFocus || !_isEmpty(String(fieldValue)),
     [styles.error]: isValid,
   });
 
   if (isSelectField) {
     return (
       <>
-        <FmkField name={name}>
+        <FmkField name={name} className="w-40">
           {({ field, form: { touched, errors }, meta }) => (
             <div className={fieldWrapperClassName}>
               <Select
+                value={fieldValue}
                 name={name}
                 options={options}
                 label={label}
@@ -71,21 +73,22 @@ const Field = ({
     <div
       className={cx(styles.form__group, styles.field, fieldWrapperClassName)}
     >
-      <FmkField name={name}>
+      <FmkField name={name} value={fieldValue} className="w-40">
         {({ field, form: { touched, errors }, meta }) => (
           <>
             <input
+              {...field}
+              value={fieldValue}
               type={type}
               onFocus={handleFocus}
               onBlur={handleBlur}
               className={fieldClassNames}
               pattern={"/^d+$/"}
               onInput={(e) => {
-                if (moneyMask) {
-                  e.target.value = `R$ ${money(e.target.value)}`;
+                if (mask) {
+                  e.target.value = mask(e.target.value);
                 }
               }}
-              {...field}
             />
             <Fade bottom when={meta.touched && meta.error}>
               <p className={styles.error_text}>{errorMessage}</p>
@@ -109,7 +112,7 @@ Field.propTypes = {
   values: PropTypes.object,
   errors: PropTypes.object,
   type: PropTypes.string,
-  moneyMask: PropTypes.bool,
+  mask: PropTypes.bool,
   touched: PropTypes.bool,
   options: PropTypes.array,
   fieldWrapperClassName: PropTypes.string,
