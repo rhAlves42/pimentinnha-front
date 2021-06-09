@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import _get from "lodash/get";
 import _keys from "lodash/keys";
+import _filter from "lodash/filter";
 import _map from "lodash/map";
 import { navigate } from "gatsby";
 

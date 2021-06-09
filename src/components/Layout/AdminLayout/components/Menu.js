@@ -6,8 +6,9 @@ import cx from "classnames";
 import * as AntIcons from "@ant-design/icons";
 import { menuData } from "../../utils";
 
-import styles from "../Admin.module.css";
 import Button from "../../../Button";
+import styles from "../Admin.module.css";
+
 const Menu = ({ isNavOpen }) => {
   const menuItemWrapperClassName = cx(styles.menuWrapper, {
     [styles.closedNav]: !isNavOpen,
@@ -24,7 +25,7 @@ const Menu = ({ isNavOpen }) => {
       {_map(menuData, (menuItem) => (
         <Button
           key={menuItem.name}
-          type="ghost"
+          buttonType="menu"
           to={menuItem.path}
           onClick={() => navigate(menuItem.path || "/")}
           className={menuItemWrapperClassName}

@@ -1,10 +1,10 @@
 import React from "react";
 import _lowerCase from "lodash/lowerCase";
 import _filter from "lodash/filter";
-import { Button } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { navigate } from "gatsby";
 
+import Button from "../../components/Button";
 import AdminLayout from "../../components/Layout/AdminLayout";
 import ClientService from "../../services/client.service";
 import ClientTable from "../../components/Cliente/components/ClientTable";

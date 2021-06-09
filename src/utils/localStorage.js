@@ -10,7 +10,7 @@ export const getDataFromStorage = ({ dataName }) => {
 
 export const setDataToStorage = ({ dataName, dataValue }) => {
   if (typeof window !== "undefined") {
-    const stringfiedData = JSON.stringify(dataValue)
+    const stringfiedData = JSON.stringify(dataValue);y
     localStorage.setItem(dataName, stringfiedData);
   }
 };

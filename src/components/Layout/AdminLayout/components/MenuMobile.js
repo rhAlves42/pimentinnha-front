@@ -22,7 +22,7 @@ const MenuMobile = ({ isOpen, handleToggleNav, pageTitle, children }) => {
           </Fade>
         )}
       </div>
-      {!isOpen && <div className="u-size9of12 u-lg-size10of12">{children}</div>}
+      {!isOpen && <div className="u-size12of12 u-lg-size10of12">{children}</div>}
     </main>
   );
 };

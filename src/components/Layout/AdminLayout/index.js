@@ -6,7 +6,7 @@ import { Button } from "theme-ui";
 import Layout from "../";
 import LogoAdmin from "./components/LogoAdmin";
 import Menu from "./components/Menu";
-import Loader from '../../Loader';
+import Loader from "../../Loader";
 import MenuMobile from "./components/MenuMobile";
 import DestktopAndTablet from "../../MediaQuery/DestktopAndTablet";
 import Mobile from "../../MediaQuery/Mobile";
@@ -23,14 +23,11 @@ const AdminLayout = ({ pageTitle, description, children, isLoading }) => {
   const [isOpen, setIsOpen] = React.useState(openState);
 
   React.useEffect(() => {
-    setDataToStorage({ dataName: "navState", dataValue: isOpen });
-  }, [isOpen]);
-
-  React.useEffect(() => {
     setDataToStorage({ dataName: "navState", dataValue: true });
-  });
+  }, []);
 
   const handleToggleNav = () => {
+    setDataToStorage({ dataName: "navState", dataValue: isOpen });
     setIsOpen(!isOpen);
   };
   const navClassNames = cx(
@@ -48,13 +45,6 @@ const AdminLayout = ({ pageTitle, description, children, isLoading }) => {
   });
   return (
     <Layout pageTitle={pageTitle}>
-      <Mobile>
-        <MenuMobile
-          isOpen={isOpen}
-          pageTitle={pageTitle}
-          handleToggleNav={handleToggleNav}
-        />
-      </Mobile>
       <DestktopAndTablet>
         <main className="Grid">
           <section className={navClassNames}>
@@ -68,6 +58,19 @@ const AdminLayout = ({ pageTitle, description, children, isLoading }) => {
           </div>
         </main>
       </DestktopAndTablet>
+      <Mobile>
+        <MenuMobile
+          isOpen={isOpen}
+          pageTitle={pageTitle}
+          handleToggleNav={handleToggleNav}
+        >
+          <main className="Grid">
+            <div className={contentClassName}>
+              {isLoading ? <Loader /> : children}
+            </div>
+          </main>
+        </MenuMobile>
+      </Mobile>
     </Layout>
   );
 };

@@ -1,10 +1,8 @@
 import React from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
-import { Button as GhostButton } from "theme-ui";
 import { LoadingOutlined } from "@ant-design/icons";
-
-import styles from "./Button.module.css";
+import { DefaultButton } from "./styles";
 
 const Button = ({
   onSubmit,
@@ -12,49 +10,19 @@ const Button = ({
   className,
   disabled,
   children,
-  buttonType = "white",
+  buttonType="default",
   ...props
 }) => {
-  if (type === "ghost") {
-    return (
-      <GhostButton
-        onClick={onSubmit}
-        type={type}
-        disabled={disabled}
-        className={cx(
-          "pa16 flex flex-row items-center justify-start",
-          styles.ghost,
-          className
-        )}
-        {...props}
-      >
-        {disabled && <LoadingOutlined className={styles.loadingIcon} />}
-        {!disabled && children}
-      </GhostButton>
-    );
-  }
   return (
-    <>
-      <button
-        onClick={onSubmit}
-        type={type}
-        disabled={disabled}
-        className={cx(className, styles.button, {
-          [styles.white]: buttonType === "white",
-          [styles.transparent]: buttonType === "transparent",
-        })}
-        {...props}
-      >
-        <p>
-          <span className={cx(styles.bg)}></span>
-          <span className={cx(styles.base)}></span>
-          <span className={cx(styles.text)}>
-            {disabled && <LoadingOutlined className={styles.loadingIcon} />}
-            {!disabled && children}
-          </span>
-        </p>
-      </button>
-    </>
+    <DefaultButton
+      onClick={onSubmit}
+      type={type}
+      disabled={disabled}
+      className={buttonType}
+      {...props}
+    >
+      <span>{children}</span>
+    </DefaultButton>
   );
 };
 

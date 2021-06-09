@@ -70,6 +70,7 @@ const ProductTable = ({ data }) => {
     { title: "Qtd. Estoque", dataIndex: "qtdEstoque", key: "qtdEstoque" },
     {
       title: "Ações",
+      fixed: 'right',
       dataIndex: null,
       render: ({ ...data }) => (
         <ActionButtons itemInfo={data} onEdit={onEdit} onDelete={onDelete} />
